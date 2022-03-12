@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public float fireRate = 0.3f;
     public float health = 10;
     public int score = 100;
+
     public Vector3 pos {
         get { 
             return(this.transform.position);
@@ -16,20 +17,16 @@ public class Enemy : MonoBehaviour
             this.transform.position = value;
         }
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
+    
     void FixedUpdate()
     {
-        Move();   
+        MoveDown(); 
     }
 
-    public virtual void Move() {
+    public void MoveDown() {
         Vector3 tempPos = pos;
         tempPos.y -= speed * Time.deltaTime;
         pos = tempPos;
     }
+
 }
