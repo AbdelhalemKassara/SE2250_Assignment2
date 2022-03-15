@@ -2,19 +2,16 @@ using UnityEngine;
 
 
 //make this class a general class then split it into enemy 1 and 2
-public abstract class BoundsCheckEnemy : MonoBehaviour
+public class BoundsCheckEnemy : BoundsCheck
 {
-    protected Vector2 screenSize;
-    protected float shipHalfWidth;//half width
-    protected float shipHalfHeight;//half height
     protected float bottomBound;
     public GameObject ship;
 
 
     protected void Awake()
     {
-        screenSize = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, Camera.main.transform.position.z));
-        bottomBound = -screenSize.y - shipHalfHeight;
+        base.Awake();
+        bottomBound = -screenBounds.y - shipHalfHeight;
     }
     protected void LateUpdate()
     {
@@ -22,8 +19,15 @@ public abstract class BoundsCheckEnemy : MonoBehaviour
     }
 
     //getters and setters
-    public abstract float SetShipHalfWidth();
-    public abstract float SetShipHalfHeight(); 
+    public override float SetShipHalfWidth()
+    {
+        shipHalfWidth = transform.GetComponent<SpriteRenderer>().bounds.size.x / 2;
+        return shipHalfWidth;
+    }
+    public override float SetShipHalfHeight() {
+        shipHalfHeight = transform.GetComponent<SpriteRenderer>().bounds.size.y / 2;
+        return shipHalfHeight;
+    }
     
      
     //methods

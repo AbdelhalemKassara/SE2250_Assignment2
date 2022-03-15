@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 
@@ -12,7 +10,7 @@ public class BoundsCheckEnemy2 : BoundsCheckEnemy
         SetShipHalfHeight();
         SetShipHalfWidth();
         base.Awake();
-        sideBounds = screenSize.x - shipHalfWidth;
+        sideBounds = screenBounds.x - shipHalfWidth;
     }
 
 

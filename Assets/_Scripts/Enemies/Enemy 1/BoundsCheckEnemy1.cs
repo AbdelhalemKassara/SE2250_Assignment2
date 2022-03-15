@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoundsCheckEnemy1 : BoundsCheckEnemy
@@ -9,7 +7,6 @@ public class BoundsCheckEnemy1 : BoundsCheckEnemy
     void Awake() {
         SetShipHalfWidth();
         SetShipHalfHeight();
-
         base.Awake();
     }
     //getters and setters
