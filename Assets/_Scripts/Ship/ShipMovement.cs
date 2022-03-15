@@ -7,7 +7,6 @@ public class ShipMovement : MonoBehaviour
     public float speed = 30;
     public float rollMult = -45;
     public float pitchMult = 30;
-    // Start is called before the first frame update
 
     // Update is called once per frame
     void FixedUpdate()
